@@ -49,5 +49,5 @@
       "type": "image/png"
     }
   ],
-  "splash_pages": "home.html"
+  "splash_pages": "./home.html"
 }
