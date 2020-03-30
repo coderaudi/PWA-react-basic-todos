@@ -36,7 +36,7 @@ class App extends Component {
 
   render() {
     return (
-      <div style={{ padding : "50px" }}>
+      <div style={{ padding : "50px" }} className="base-container">
 
         <h1>PWA - reactjs </h1>
 
