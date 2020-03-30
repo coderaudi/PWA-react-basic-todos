@@ -42,7 +42,9 @@ class App extends Component {
 
         <button onClick={() => this.getTodos()}>Get Todos</button>
 
-        {this.state.todoLoading && <h2>Loading.... todo's API </h2>}
+
+
+        {this.state.todoLoading && <h2>Loading...... todo's API </h2>}
 
 
         {
