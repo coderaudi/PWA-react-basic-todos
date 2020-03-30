@@ -15,8 +15,6 @@ class App extends Component {
   }
 
 
-
-
   fileUpload = (e) => {
     this.setState({
       imgFile: URL.createObjectURL(e.target.files[0])
@@ -109,3 +107,4 @@ class App extends Component {
 }
 
 export default App;
+
