@@ -57,6 +57,7 @@ class App extends Component {
   render() {
     return (
       <div style={{ padding: "50px" }} className="base-container">
+              <button class="add-button">Add to home screen</button>
 
         <h1>PWA - reactjs-todo's </h1>
 
@@ -87,7 +88,7 @@ class App extends Component {
 
 
 
-           camera input <input type="file"
+          camera input <input type="file"
           onChange={(e) => this.fileUpload(e)}
           accept="image/*" capture="camera" />
 
@@ -95,7 +96,14 @@ class App extends Component {
 
 
 
-        <button onClick={() => this.getLocation()}>getLocation</button>
+        {/* <button onClick={() => this.getLocation()}>getLocation</button> */}
+
+        {/* <textarea
+          value={this.state.textArea}
+          onChange={ e => this.setState({ textArea : e.target.value})}
+          width="100%"
+          height="80px"
+          /> */}
 
 
 
