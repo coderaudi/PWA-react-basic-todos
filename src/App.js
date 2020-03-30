@@ -71,6 +71,10 @@ class App extends Component {
            width="100px" height="100px"/>
 
 
+           camera input <input type="file" accept="image/*" capture="camera" />
+
+
+
       </div>
     );
   }
