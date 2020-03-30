@@ -8,11 +8,17 @@ class App extends Component {
     this.state={
       todos : null,
       todoLoading : false,
+      imgFile: null
     }
     
   }
   
 
+  fileUpload = (e) =>{
+    this.setState({
+      imgFile : URL.createObjectURL(e.target.files[0])
+    })
+  }
 
   getTodos = () => {
 
@@ -29,7 +35,7 @@ class App extends Component {
         data = data && data.slice(0, 10);
         this.setState( { todos : data , todoLoading : false });
       })
-     }, 2000);
+     }, 1000);
 
 
   }
@@ -52,6 +58,18 @@ class App extends Component {
           return <h4 key={i}>{i+1}. {e.title}</h4>
           })
         }
+
+        <hr/>
+
+        <input 
+          type="file" 
+       
+          onChange={(e) => this.fileUpload(e)}/>
+
+          <img
+           src={this.state.imgFile} 
+           width="100px" height="100px"/>
+
 
       </div>
     );
