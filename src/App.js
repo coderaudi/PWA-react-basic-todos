@@ -5,44 +5,60 @@ class App extends Component {
   constructor(props) {
     super(props);
 
-    this.state={
-      todos : null,
-      todoLoading : false,
-      imgFile: null
+    this.state = {
+      todos: null,
+      todoLoading: false,
+      imgFile: null,
+      isOnline: true
     }
-    
-  }
-  
 
-  fileUpload = (e) =>{
+  }
+
+
+
+
+  fileUpload = (e) => {
     this.setState({
-      imgFile : URL.createObjectURL(e.target.files[0])
+      imgFile: URL.createObjectURL(e.target.files[0])
     })
   }
 
   getTodos = () => {
 
     let url = "https://jsonplaceholder.typicode.com/todos";
-    this.setState({ todoLoading : true , todos : null});
-    
-     setTimeout(() => {
+    this.setState({ todoLoading: true, todos: null });
+
+    setTimeout(() => {
       fetch(url)
-      .then((response) => {
-        return response.json();
-      })
-      .then((data) => {
-        console.log(data);
-        data = data && data.slice(0, 10);
-        this.setState( { todos : data , todoLoading : false });
-      })
-     }, 1000);
+        .then((response) => {
+          return response.json();
+        })
+        .then((data) => {
+          console.log(data);
+          data = data && data.slice(0, 10);
+          this.setState({ todos: data, todoLoading: false });
+        })
+    }, 1000);
 
 
   }
 
+  getLocation = () => {
+    console.log(navigator.geolocation);
+
+  }
+
+  myNetwork = () => {
+    if (navigator.onLine) {
+      console.log(navigator.onl)
+    }
+  }
+
+
+
   render() {
     return (
-      <div style={{ padding : "50px" }} className="base-container">
+      <div style={{ padding: "50px" }} className="base-container">
 
         <h1>PWA - reactjs-todo's </h1>
 
@@ -50,30 +66,40 @@ class App extends Component {
 
 
 
-        {this.state.todoLoading && <h2>Loading...... todo's API </h2>}
+        {this.state.todoLoading && <h2>Loading...... todo's API 
+        {!navigator.onLine && "(offline)"}
+        </h2>}
 
 
         {
-          this.state.todos && this.state.todos.map( (e , i)=>{
-          return <h4 key={i}>{i+1}. {e.title}</h4>
+          this.state.todos && this.state.todos.map((e, i) => {
+            return <h4 key={i}>{i + 1}. {e.title}</h4>
           })
         }
 
-        <hr/>
+        <hr />
         <img
-           src={this.state.imgFile} 
-           width="50%" height="50%"/>
+          src={this.state.imgFile}
+          width="100%" height="100%" />
 
-        <input 
-          type="file" 
-       
-          onChange={(e) => this.fileUpload(e)}/>
+        <input
+          type="file"
 
-        
+          onChange={(e) => this.fileUpload(e)} />
 
-           camera input <input type="file" 
-            onChange={(e) => this.fileUpload(e)}
-           accept="image/*" capture="camera" />
+
+
+           camera input <input type="file"
+          onChange={(e) => this.fileUpload(e)}
+          accept="image/*" capture="camera" />
+
+        <hr />
+
+
+
+        <button onClick={() => this.getLocation()}>getLocation</button>
+
+
 
 
 
