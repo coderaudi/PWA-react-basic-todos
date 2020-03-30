@@ -38,7 +38,7 @@ class App extends Component {
     return (
       <div style={{ padding : "50px" }} className="base-container">
 
-        <h1>PWA - reactjs </h1>
+        <h1>PWA - reactjs-todo's </h1>
 
         <button onClick={() => this.getTodos()}>Get Todos</button>
 
