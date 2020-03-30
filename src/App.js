@@ -60,18 +60,20 @@ class App extends Component {
         }
 
         <hr/>
+        <img
+           src={this.state.imgFile} 
+           width="50%" height="50%"/>
 
         <input 
           type="file" 
        
           onChange={(e) => this.fileUpload(e)}/>
 
-          <img
-           src={this.state.imgFile} 
-           width="100px" height="100px"/>
+        
 
-
-           camera input <input type="file" accept="image/*" capture="camera" />
+           camera input <input type="file" 
+            onChange={(e) => this.fileUpload(e)}
+           accept="image/*" capture="camera" />
 
 
 
